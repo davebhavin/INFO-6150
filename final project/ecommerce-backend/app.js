@@ -4,6 +4,7 @@ const authRoutes=require('./routes/auth');
 const userRoutes=require('./routes/user');
 const categoryRoutes=require('./routes/category');
 const productRoutes=require('./routes/products');
+const braintreeRoutes = require("./routes/braintree");
 const morgan=require('morgan');
 const bodyParser=require('body-parser');
 const cookieParser=require('cookie-parser');
@@ -29,6 +30,7 @@ mongoose.connect(process.env.DATABASE,{
     app.use("/api",userRoutes);
     app.use("/api",categoryRoutes);
     app.use("/api",productRoutes);
+    app.use("/api/", braintreeRoutes);
 
 const port=process.env.PORT||8000;
 

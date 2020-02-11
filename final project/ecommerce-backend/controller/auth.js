@@ -27,7 +27,7 @@ exports.signin=(req,res)=>{
         }
         if(!user.authenticate(password)){
             return res.status(401).json({
-                error:'Email and password dosnrnto match'
+                error:'Email and password does not match'
             })
         }
         const token=jwt.sign({_id:user.id},process.env.JWT_KEY);
